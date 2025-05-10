@@ -6,7 +6,7 @@
     <packaging>jar</packaging>
     <version>1.0-0</version>
     <name>Java Super Interface Proxy</name>
-    <description>Supporting code for my article – Java Proxy for Overlapping Interfaces</description>
+    <description>Supporting code for my article – Java proxy for overlapping interfaces</description>
     <properties>
         <java.version>21</java.version>
     </properties>
