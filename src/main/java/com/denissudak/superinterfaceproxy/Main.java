@@ -11,24 +11,24 @@ public class Main {
     private final ObjectMapper objectMapper = new ObjectMapper();
     private final AccountingDTOImpl accountingDTO = new AccountingDTOImpl();
 
-    private final SuperInterfaceProxy<AccountingDTO1, AccountingDTOImpl> accountingDTO1InterfaceProxy = new SuperInterfaceProxy<>(AccountingDTO1.class);
-    private final SuperInterfaceProxy<AccountingDTO2, AccountingDTOImpl> accountingDTO2InterfaceProxy = new SuperInterfaceProxy<>(AccountingDTO2.class);
-    private final SuperInterfaceProxy<AccountingDTO3, AccountingDTOImpl> accountingDTO3InterfaceProxy = new SuperInterfaceProxy<>(AccountingDTO3.class);
+    private final SuperInterfaceProxyFactory<AccountingDTO1, AccountingDTOImpl> dto1InterfaceProxyFactory = new SuperInterfaceProxyFactory<>(AccountingDTO1.class);
+    private final SuperInterfaceProxyFactory<AccountingDTO2, AccountingDTOImpl> dto2InterfaceProxyFactory = new SuperInterfaceProxyFactory<>(AccountingDTO2.class);
+    private final SuperInterfaceProxyFactory<AccountingDTO3, AccountingDTOImpl> dto3InterfaceProxyFactory = new SuperInterfaceProxyFactory<>(AccountingDTO3.class);
 
     public void runUseCase1() {
-        AccountingDTO1 dto = accountingDTO1InterfaceProxy.newProxy(accountingDTO);
+        AccountingDTO1 dto = dto1InterfaceProxyFactory.newProxy(accountingDTO);
         System.out.println("===DTO1===");
         System.out.println(convertToJson(dto));
     }
 
     public void runUseCase2() {
-        AccountingDTO2 dto = accountingDTO2InterfaceProxy.newProxy(accountingDTO);
+        AccountingDTO2 dto = dto2InterfaceProxyFactory.newProxy(accountingDTO);
         System.out.println("===DTO2===");
         System.out.println(convertToJson(dto));
     }
 
     public void runUseCase3() {
-        AccountingDTO3 dto = accountingDTO3InterfaceProxy.newProxy(accountingDTO);
+        AccountingDTO3 dto = dto3InterfaceProxyFactory.newProxy(accountingDTO);
         System.out.println("===DTO3===");
         System.out.println(convertToJson(dto));
     }
